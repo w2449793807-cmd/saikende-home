@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>赛肯德工具箱</title>
+<meta name="description" content="出门在外用得上的一点小工具。打开就能用，不用注册，账目只存在你自己手机上。" />
+<meta name="theme-color" content="#4a8c82" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#171917" media="(prefers-color-scheme: dark)" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="format-detection" content="telephone=no" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234a8c82'/%3E%3Ctext x='32' y='42' font-size='30' font-family='-apple-system,sans-serif' font-weight='600' fill='%23fff' text-anchor='middle'%3EAA%3C/text%3E%3C/svg%3E" />
+<style>
+  :root {
+    color-scheme: light dark;
+    /* 设计令牌：字阶 5 档、间距 8pt 栅格、圆角两档（与工具页保持一致） */
+    --fs-hero: 28px;
+    --fs-title: 17px;
+    --fs-body: 15px;
+    --fs-sub: 13px;
+    --fs-cap: 11px;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+
+    --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px;
+    --r-card: 16px; --r-control: 12px; --r-pill: 999px;
+    --tap-min: 44px; --btn-lg: 48px;
+
+    --accent: #4a8c82;
+    --accent: light-dark(#4a8c82, #7fbcb0);
+    --accent-soft: #e9f2ef;
+    --accent-soft: light-dark(#e9f2ef, rgba(127, 188, 176, .16));
+    --accent-ink: #ffffff;
+    --accent-ink: light-dark(#ffffff, #10181a);
+
+    --text: rgba(42, 42, 38, .92);
+    --text: light-dark(rgba(42, 42, 38, .92), rgba(238, 237, 233, .94));
+    --muted: rgba(42, 42, 38, .5);
+    --muted: light-dark(rgba(42, 42, 38, .5), rgba(238, 237, 233, .56));
+    --line: rgba(42, 42, 38, .08);
+    --line: light-dark(rgba(42, 42, 38, .08), rgba(255, 255, 255, .1));
+    --surface: #ffffff;
+    --surface: light-dark(#ffffff, #1c1e1d);
+    --bg: #f2f1ec;
+    --bg: light-dark(#f2f1ec, #171917);
+    --shadow: 0 1px 2px rgba(0, 0, 0, .05), 0 0 0 1px var(--line);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    font-size: var(--fs-body); line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: var(--sp-5) var(--sp-4) calc(var(--sp-5) + env(safe-area-inset-bottom));
+    font-variant-numeric: tabular-nums;
+  }
+  .wrap { max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; gap: var(--sp-5); }
+
+  .hero { display: flex; flex-direction: column; gap: var(--sp-3); align-items: flex-start; }
+  .mark {
+    width: var(--btn-lg); height: var(--btn-lg); border-radius: var(--r-control);
+    background: var(--accent); color: var(--accent-ink);
+    display: flex; align-items: center; justify-content: center;
+    font-size: var(--fs-title); font-weight: var(--fw-semibold); letter-spacing: .02em;
+  }
+  .hero h1 { margin: 0; font-size: var(--fs-hero); font-weight: var(--fw-semibold); line-height: 1.2; }
+  .lede { margin: 0; color: var(--muted); }
+
+  .sec { display: flex; flex-direction: column; gap: var(--sp-3); }
+  .sec h2 { margin: 0; font-size: var(--fs-sub); font-weight: var(--fw-medium); color: var(--muted); }
+
+  .tool {
+    background: var(--surface); border-radius: var(--r-card); box-shadow: var(--shadow);
+    padding: var(--sp-4); display: flex; flex-direction: column; gap: var(--sp-3);
+  }
+  .tool-head { display: flex; align-items: center; gap: var(--sp-3); }
+  .tool-icon {
+    width: var(--tap-min); height: var(--tap-min); flex: none; border-radius: var(--r-control);
+    background: var(--accent-soft); color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: var(--fs-sub); font-weight: var(--fw-semibold);
+  }
+  .tool-head h3 { margin: 0; font-size: var(--fs-title); font-weight: var(--fw-medium); }
+  .tool-sub { margin: 0; font-size: var(--fs-cap); color: var(--muted); }
+  .tool-desc { margin: 0; }
+  .points { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--sp-2); }
+  .points li { display: grid; grid-template-columns: var(--sp-4) minmax(0, 1fr); gap: var(--sp-2); font-size: var(--fs-sub); color: var(--muted); }
+  .points li::before { content: ""; width: var(--sp-1); height: var(--sp-1); margin: var(--sp-2) 0 0 var(--sp-2); border-radius: var(--r-pill); background: var(--accent); }
+
+  .btn-primary {
+    display: flex; align-items: center; justify-content: center;
+    min-height: var(--btn-lg); padding: 0 var(--sp-4);
+    background: var(--accent); color: var(--accent-ink);
+    border-radius: var(--r-control); font-size: var(--fs-title); font-weight: var(--fw-medium);
+    text-decoration: none; transition: transform .12s ease, opacity .12s ease;
+  }
+  .btn-primary:active { transform: scale(.98); opacity: .92; }
+  .btn-primary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .note { margin: 0; font-size: var(--fs-sub); color: var(--muted); }
+  .ft { display: flex; flex-direction: column; gap: var(--sp-1); border-top: 1px solid var(--line); padding-top: var(--sp-4); }
+  .ft p { margin: 0; font-size: var(--fs-cap); color: var(--muted); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <div class="mark" aria-hidden="true">AA</div>
+      <h1>赛肯德工具箱</h1>
+      <p class="lede">出门在外用得上的一点小工具。打开就能用，不用注册，账目也只存在你自己手机上。</p>
+    </header>
+
+    <section class="sec" aria-labelledby="tools-title">
+      <h2 id="tools-title">工具</h2>
+
+      <article class="tool">
+        <div class="tool-head">
+          <span class="tool-icon" aria-hidden="true">AA</span>
+          <div>
+            <h3>旅行 AA 分摊器</h3>
+            <p class="tool-sub">多人出游记账与分摊</p>
+          </div>
+        </div>
+        <p class="tool-desc">谁先垫的钱、这一笔几个人分、最后谁转给谁多少，算完直接生成一张能发群的结算图。</p>
+        <ul class="points">
+          <li>不用注册，也不用装 App</li>
+          <li>账目只存在你自己手机上</li>
+          <li>国内国外都能记，带汇率换算</li>
+        </ul>
+        <a class="btn-primary" href="https://aa.saikende.cn/">打开工具</a>
+        <p class="note">想更像 App，可以在打开后把它加到手机桌面。</p>
+      </article>
+
+      <p class="note">更多工具还在做，做好一个放一个。</p>
+    </section>
+
+    <footer class="ft">
+      <p>© 2026 赛肯德工具箱 · 保留所有权利</p>
+      <p>这个首页不收集任何信息，没有统计埋点，也没有广告。</p>
+    </footer>
+  </main>
+</body>
+</html>

@@ -81,7 +81,6 @@
   .app:active .app-icon { transform: scale(.94); }
   .app:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
   .app-name { font-size: var(--fs-sub); line-height: 1.35; text-align: center; }
-  .app-icon svg { width: 34px; height: 34px; display: block; }
 
   /* 测试：与「工具」同级的入口，做成整宽卡片，比图标更大更醒目 */
   .feature {
@@ -130,13 +129,7 @@
       <h2 id="tools-title">工具</h2>
       <div class="apps">
         <a class="app" href="https://aa.saikende.cn/">
-          <span class="app-icon" aria-hidden="true">
-            <svg viewBox="0 0 64 64" fill="none">
-              <circle cx="32" cy="32" r="15" fill="#fff" opacity=".32" />
-              <path d="M32 17a15 15 0 0 1 0 30z" fill="#fff" />
-              <circle cx="32" cy="32" r="15" stroke="#fff" stroke-width="4" />
-            </svg>
-          </span>
+          <span class="app-icon" aria-hidden="true">AA</span>
           <span class="app-name">旅行 AA<br />小工具</span>
         </a>
       </div>

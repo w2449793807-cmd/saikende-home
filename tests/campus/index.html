@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="description" content="16 道原创情景题，测你的作答风格会不会在线上测评里被标记为作答异常。" />
+    <meta name="theme-color" content="#f2f1ec" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237c8ede'/%3E%3Cstop offset='1' stop-color='%2341539f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Crect x='18' y='17' width='28' height='31' rx='6' fill='%23fff'/%3E%3Crect x='24' y='27' width='16' height='3.4' rx='1.7' fill='%2341539f'/%3E%3Crect x='24' y='34' width='16' height='3.4' rx='1.7' fill='%2341539f'/%3E%3Crect x='24' y='41' width='10' height='3.4' rx='1.7' fill='%2341539f'/%3E%3C/svg%3E" />
+    <link rel="apple-touch-icon" href="/icons/icon-campus-180.png" />
+    <title>校招测评作答画像</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- 说明页 -->
+      <section id="screen-intro" class="screen active">
+        <div class="sysbar"><span class="dot"></span><span>情景自测 · 约 3 分钟</span></div>
+
+        <div class="card">
+          <h1>你的校招测评<br />分数会不会白算？</h1>
+          <p class="meta">16 道情景题 · 约 3 分钟 · 数据只存在你手机上</p>
+
+          <p class="body-text">很多同学不是答得差，而是<b>同一件事前后说法不一致、或者一路挑最漂亮的答案</b>——报告里出现「作答不一致」，前面答得再好也会被覆盖掉。</p>
+          <p class="body-text">这个自测就是查这三件事：</p>
+          <ul class="list">
+            <li>同一件事换种问法问你两次，答案对不对得上</li>
+            <li>你有多少答案，选的是那个「最标准」的选项</li>
+            <li>选项是不是爱往最两端跑</li>
+          </ul>
+
+          <button type="button" id="btn-start" class="btn btn-primary">开始自测</button>
+          <button type="button" id="btn-last" class="btn btn-ghost" style="display: none">查看上次结果</button>
+        </div>
+
+        <div class="card">
+          <h2>怎么答才有用</h2>
+          <ul class="list">
+            <li>按第一反应选，不用猜「哪个是正确答案」</li>
+            <li>别在一道题上纠结太久，8–15 秒就够了</li>
+            <li>越像平时的你，结果越有参考价值</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 答题页 -->
+      <section id="screen-quiz" class="screen">
+        <div class="sysbar"><span class="dot"></span><span>情景自测</span></div>
+        <div class="card">
+          <div class="progress-head">
+            <span>作答进度</span>
+            <span id="progress-count">1 / 16</span>
+          </div>
+          <div class="progress-track"><div id="progress-fill" class="progress-fill"></div></div>
+
+          <div id="q-index" class="q-index">第 1 题 / 共 16 题</div>
+          <p id="q-text" class="q-text"></p>
+          <div id="opt-wrap"></div>
+
+          <div class="q-foot">
+            <button type="button" id="btn-prev" class="link-btn" disabled>← 上一题</button>
+            <span class="q-hint">选最像你平时做法的那一个</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 结果页 -->
+      <section id="screen-result" class="screen">
+        <div class="hero">
+          <div class="eyebrow">你的作答画像</div>
+          <div id="res-level" class="level"></div>
+          <div id="res-name" class="result-name"></div>
+          <p id="res-tag" class="result-tag"></p>
+        </div>
+
+        <div class="card">
+          <div class="section-title">这个结果是怎么来的</div>
+          <p id="res-portrait" class="body-text"></p>
+          <div id="metrics-wrap"></div>
+          <p id="facts" class="facts"></p>
+        </div>
+
+        <div class="card">
+          <div class="section-title">真实测评里，你可能会遇到</div>
+          <div id="res-scene" class="scene-box"></div>
+
+          <div class="section-title">现在就能改的三件事</div>
+          <ul id="advice-list" class="list"></ul>
+
+          <div class="section-title">别忘了你还有这个优势</div>
+          <div id="res-strength" class="strength-box"></div>
+
+          <div class="section-title">适合方向</div>
+          <p id="res-fit" class="fit"></p>
+        </div>
+
+        <div class="card">
+          <h2>把结果带走</h2>
+          <p class="body-text">下面这张图可以保存到相册，也可以一键发成笔记。</p>
+          <button type="button" id="btn-save" class="btn btn-primary">保存结果卡</button>
+          <button type="button" id="btn-share" class="btn btn-ghost">发笔记分享我的结果</button>
+          <button type="button" id="btn-restart" class="btn btn-ghost">重新测一次</button>
+          <div class="canvas-wrap">
+            <canvas id="card-canvas" width="1080" height="1920"></canvas>
+            <p class="tip">在浏览器里打开时，可以长按上面的图片保存。</p>
+          </div>
+        </div>
+
+        <p id="disclaimer" class="note"></p>
+      </section>
+    </div>
+
+    <div id="toast" class="toast"></div>
+    <div id="share-panel" class="share-panel" style="display: none">
+      <div class="share-head">
+        <span class="share-title">笔记文案已备好</span>
+        <button type="button" id="btn-share-close" class="share-close">收起</button>
+      </div>
+      <textarea id="share-text" class="share-text" readonly rows="5"></textarea>
+      <p class="share-tip">复制这段文字 → 保存上面的结果卡 → 打开小红书新建笔记 → 粘贴文案、加上图片发布。</p>
+      <button type="button" id="btn-share-reselect" class="btn btn-ghost">重新选中文案</button>
+    </div>
+
+    <script src="./assets/data.js"></script>
+    <script src="./assets/main.js"></script>
+  </body>
+</html>

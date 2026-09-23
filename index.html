@@ -10,7 +10,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="format-detection" content="telephone=no" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234a8c82'/%3E%3Ctext x='32' y='42' font-size='30' font-family='-apple-system,sans-serif' font-weight='600' fill='%23fff' text-anchor='middle'%3EAA%3C/text%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2363b8a9'/%3E%3Cstop offset='1' stop-color='%2331665e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Cpath d='M43 22c-1.5-3.5-6-5.5-11.5-5.5-6.5 0-11 2.8-11 7.2 0 4.2 4.4 5.6 11 6.6 6.6 1 11 2.8 11 7.2 0 4.4-4.8 7.2-11.5 7.2-5.6 0-10.3-2-11.7-5.6' fill='none' stroke='%23fff' stroke-width='6.2' stroke-linecap='round'/%3E%3C/svg%3E" />
+<link rel="apple-touch-icon" href="/icons/icon-brand-180.png" />
 <style>
   :root {
     color-scheme: light dark;
@@ -80,6 +81,37 @@
   .app:active .app-icon { transform: scale(.94); }
   .app:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
   .app-name { font-size: var(--fs-sub); line-height: 1.35; text-align: center; }
+  .app-icon svg { width: 34px; height: 34px; display: block; }
+
+  /* 测试：与「工具」同级的入口，做成整宽卡片，比图标更大更醒目 */
+  .feature {
+    display: flex; align-items: center; gap: var(--sp-4);
+    padding: var(--sp-4);
+    border-radius: var(--r-big);
+    text-decoration: none; color: inherit;
+    background: var(--feature-bg);
+    border: 1px solid var(--line);
+    box-shadow: 0 6px 20px rgba(42, 42, 38, .07);
+    transition: transform .14s ease, box-shadow .14s ease;
+  }
+  :root { --feature-bg: light-dark(linear-gradient(112deg, #fff2f7 0%, #ffffff 46%, #f1f4ff 100%), linear-gradient(112deg, rgba(245,143,174,.16) 0%, rgba(28,30,29,1) 46%, rgba(124,142,222,.16) 100%)); }
+  .feature:active { transform: scale(.985); box-shadow: 0 3px 12px rgba(42, 42, 38, .1); }
+  .feature:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .f-ic { flex: 0 0 auto; position: relative; width: 62px; height: 62px; }
+  .f-ic span {
+    position: absolute; width: 40px; height: 40px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 12px rgba(42, 42, 38, .16);
+  }
+  .f-ic span svg { width: 22px; height: 22px; display: block; }
+  .f-ic .b1 { left: 0; top: 0; background: linear-gradient(135deg, #f58fae, #d2416f); transform: rotate(-8deg); }
+  .f-ic .b2 { right: 0; bottom: 0; background: linear-gradient(135deg, #7c8ede, #41539f); transform: rotate(6deg); }
+
+  .f-tx { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+  .f-tx strong { font-size: var(--fs-title); font-weight: var(--fw-semibold); }
+  .f-tx span { font-size: var(--fs-sub); color: var(--muted); }
+  .f-go { flex: 0 0 auto; color: var(--muted); font-size: 20px; line-height: 1; }
 
   .more { margin: 0; font-size: var(--fs-cap); color: var(--muted); }
   .ft { display: flex; flex-direction: column; gap: var(--sp-1); border-top: 1px solid var(--line); padding-top: var(--sp-4); }
@@ -98,11 +130,37 @@
       <h2 id="tools-title">工具</h2>
       <div class="apps">
         <a class="app" href="https://aa.saikende.cn/">
-          <span class="app-icon" aria-hidden="true">AA</span>
+          <span class="app-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none">
+              <circle cx="32" cy="32" r="15" fill="#fff" opacity=".32" />
+              <path d="M32 17a15 15 0 0 1 0 30z" fill="#fff" />
+              <circle cx="32" cy="32" r="15" stroke="#fff" stroke-width="4" />
+            </svg>
+          </span>
           <span class="app-name">旅行 AA<br />小工具</span>
         </a>
       </div>
       <p class="more">更多工具，敬请期待</p>
+    </section>
+
+    <section class="sec" aria-labelledby="tests-title">
+      <h2 id="tests-title">测试</h2>
+      <a class="feature" href="./tests/">
+        <span class="f-ic" aria-hidden="true">
+          <span class="b1">
+            <svg viewBox="0 0 64 64" fill="none"><path d="M32 50S13 39.6 13 27.6A10.6 10.6 0 0 1 32 21.2 10.6 10.6 0 0 1 51 27.6C51 39.6 32 50 32 50z" fill="#fff" /></svg>
+          </span>
+          <span class="b2">
+            <svg viewBox="0 0 64 64" fill="none"><rect x="15" y="12" width="34" height="40" rx="8" fill="#fff" /><rect x="23" y="24" width="18" height="4" rx="2" fill="#41539f" /><rect x="23" y="33" width="18" height="4" rx="2" fill="#41539f" /><rect x="23" y="42" width="11" height="4" rx="2" fill="#41539f" /></svg>
+          </span>
+        </span>
+        <span class="f-tx">
+          <strong>来做个小测试</strong>
+          <span>恋爱说明书 · 校招测评自测 · 点开就能做</span>
+        </span>
+        <span class="f-go" aria-hidden="true">›</span>
+      </a>
+      <p class="more">几分钟出结果，全部在手机上完成</p>
     </section>
 
     <footer class="ft">

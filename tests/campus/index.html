@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <meta name="description" content="16 道原创情景题，测你的作答风格会不会在线上测评里被标记为作答异常。" />
+    <meta name="description" content="16 个原创情景题，看看你的答题方式在线上校招测评里有没有被判定异常的风险。" />
     <meta name="theme-color" content="#f2f1ec" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237c8ede'/%3E%3Cstop offset='1' stop-color='%2341539f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Crect x='18' y='17' width='28' height='31' rx='6' fill='%23fff'/%3E%3Crect x='24' y='27' width='16' height='3.4' rx='1.7' fill='%2341539f'/%3E%3Crect x='24' y='34' width='16' height='3.4' rx='1.7' fill='%2341539f'/%3E%3Crect x='24' y='41' width='10' height='3.4' rx='1.7' fill='%2341539f'/%3E%3C/svg%3E" />
     <link rel="apple-touch-icon" href="/icons/icon-campus-180.png" />
@@ -17,15 +17,15 @@
         <div class="sysbar"><span class="dot"></span><span>情景自测 · 约 3 分钟</span></div>
 
         <div class="card">
-          <h1>你的校招测评<br />分数会不会白算？</h1>
+          <h1>你的答题方式<br />会被判异常吗？</h1>
           <p class="meta">16 道情景题 · 约 3 分钟 · 数据只存在你手机上</p>
 
-          <p class="body-text">很多同学不是答得差，而是<b>同一件事前后说法不一致、或者一路挑最漂亮的答案</b>——报告里出现「作答不一致」，前面答得再好也会被覆盖掉。</p>
-          <p class="body-text">这个自测就是查这三件事：</p>
+          <p class="body-text">有些测评不是分数低，而是报告先出现了“作答不一致”。同一种情况换个问法再问一次，前后答案对不上；或者每道题都挑最漂亮的选项，都可能把前面的分盖掉。</p>
+          <p class="body-text">这组自测主要看三件事：</p>
           <ul class="list">
-            <li>同一件事换种问法问你两次，答案对不对得上</li>
-            <li>你有多少答案，选的是那个「最标准」的选项</li>
-            <li>选项是不是爱往最两端跑</li>
+            <li>相似题问两次，你的答案对不对得上</li>
+            <li>有多少题选了看起来最“标准”的答案</li>
+            <li>选项是不是总落在最两端</li>
           </ul>
 
           <button type="button" id="btn-start" class="btn btn-primary">开始自测</button>
@@ -33,11 +33,11 @@
         </div>
 
         <div class="card">
-          <h2>怎么答才有用</h2>
+          <h2>答题前先看这几句</h2>
           <ul class="list">
-            <li>按第一反应选，不用猜「哪个是正确答案」</li>
-            <li>别在一道题上纠结太久，8–15 秒就够了</li>
-            <li>越像平时的你，结果越有参考价值</li>
+            <li>按第一反应选，不用猜标准答案</li>
+            <li>一道题别停太久，8 到 15 秒就够</li>
+            <li>越接近平时的你，结果越有参考价值</li>
           </ul>
         </div>
       </section>
@@ -94,8 +94,8 @@
         </div>
 
         <div class="card">
-          <h2>把结果带走</h2>
-          <p class="body-text">下面这张图可以保存到相册，也可以一键发成笔记。</p>
+          <h2>保存结果</h2>
+          <p class="body-text">这张图可以存到相册，也可以生成一段现成的笔记文案。</p>
           <button type="button" id="btn-save" class="btn btn-primary">保存结果卡</button>
           <button type="button" id="btn-share" class="btn btn-ghost">发笔记分享我的结果</button>
           <button type="button" id="btn-restart" class="btn btn-ghost">重新测一次</button>
@@ -112,11 +112,11 @@
     <div id="toast" class="toast"></div>
     <div id="share-panel" class="share-panel" style="display: none">
       <div class="share-head">
-        <span class="share-title">笔记文案已备好</span>
+        <span class="share-title">笔记文案写好了</span>
         <button type="button" id="btn-share-close" class="share-close">收起</button>
       </div>
       <textarea id="share-text" class="share-text" readonly rows="5"></textarea>
-      <p class="share-tip">复制这段文字 → 保存上面的结果卡 → 打开小红书新建笔记 → 粘贴文案、加上图片发布。</p>
+      <p class="share-tip">先复制文字，再保存上面的结果卡。打开小红书新建笔记，粘贴文案、加上图片就可以发布。</p>
       <button type="button" id="btn-share-reselect" class="btn btn-ghost">重新选中文案</button>
     </div>
 

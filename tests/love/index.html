@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <meta name="description" content="各 20 题，两个人轮流答，出一张双人雷达图。异地也能用答案码配对。" />
+    <meta name="description" content="两个人各答 20 题，看看在分享、冲突、陪伴和表达在意上哪里合拍、哪里容易卡住。异地也能用答案码配对。" />
     <meta name="theme-color" content="#f2f1ec" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23f58fae'/%3E%3Cstop offset='1' stop-color='%23d2416f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Cpath d='M32 48s-15-8.6-15-19a8.6 8.6 0 0 1 15-5.6A8.6 8.6 0 0 1 47 29c0 10.4-15 19-15 19z' fill='%23fff'/%3E%3C/svg%3E" />
     <link rel="apple-touch-icon" href="/icons/icon-love-180.png" />
@@ -18,12 +18,12 @@
 
         <div class="card">
           <h1>我们的<br />恋爱说明书</h1>
-          <p class="meta">各 20 道题 · 一部手机轮流答 · 约 6 分钟</p>
+          <p class="meta">两个人各 20 题 · 一部手机就能答 · 约 6 分钟</p>
 
-          <p class="body-text">很多吵架不是不爱，是<b>我们在六件事上的习惯不一样</b>：说不说出口、吵架要不要当场解决、需不需要自己的空间、怎么表达在意、难受时要不要被靠近、日常什么都想不想分享。</p>
-          <p class="body-text">这个自测把我俩的答案摊开对比，画成一张雷达图——哪几件事我们几乎同频，哪几件最容易卡住。</p>
+          <p class="body-text">很多别扭不是不在乎，只是<b>两个人在六件事上的习惯不一样</b>：有事说不说、吵架要不要当场解决、各自需要多少空间、怎么表达在意、难受时想不想被靠近、日常小事愿不愿意分享。</p>
+          <p class="body-text">两个人各答一遍，再把答案放到一起看。哪几件事很合拍，哪几件最容易反复卡住，雷达图会直接摊开。</p>
 
-          <p class="stage-note">玩法：我先答 20 题，拿到自己的说明书；然后把手机递给 Ta 再答一遍，就能看到我俩的对比。<br />异地也没关系——答完会给我一串「答案码」，发给 Ta 填进去就行。</p>
+          <p class="stage-note">先答自己的 20 题，再把手机递给 Ta。异地也可以，答完会有一串「答案码」，发给对方填进去就行。</p>
 
           <button type="button" id="btn-start" class="btn btn-primary">我先答（20 题）</button>
           <button type="button" id="btn-resume" class="btn btn-ghost" style="display: none">Ta 接着答</button>
@@ -31,11 +31,11 @@
         </div>
 
         <div class="card">
-          <h2>怎么答才有用</h2>
+          <h2>答题前先说好</h2>
           <ul class="list">
-            <li>各自按真实习惯答，不要商量、不要偷看</li>
-            <li>没有标准答案，选最像平时做法的那一个</li>
-            <li>答完再一起看结果，对比才有意义</li>
+            <li>各答各的，不商量，也别偷看</li>
+            <li>选平时真的会怎么做，不用挑“更好看”的答案</li>
+            <li>两个人都答完再一起看结果</li>
           </ul>
         </div>
       </section>
@@ -72,7 +72,7 @@
         </div>
 
         <div class="card">
-          <div class="section-title">我的六件事</div>
+          <div class="section-title">我在六件事上的习惯</div>
           <div class="radar-wrap">
             <canvas id="radar-solo" width="660" height="660"></canvas>
           </div>
@@ -81,8 +81,8 @@
         </div>
 
         <div id="next-a" class="card">
-          <h2>下一步</h2>
-          <p class="body-text">让我俩的另一半也答一遍，就能看到在哪几件事上同频、哪几件容易卡。</p>
+          <h2>让 Ta 也答一遍</h2>
+          <p class="body-text">等另一半答完，就能看到你们在哪几件事上很合拍，哪几件最容易反复卡住。</p>
           <button type="button" id="btn-partner" class="btn btn-primary">Ta 就在我旁边，让 Ta 答</button>
           <button type="button" id="btn-guess" class="btn btn-ghost">Ta 不方便，我按印象替 Ta 答</button>
           <button type="button" id="btn-code-open" class="btn btn-ghost">Ta 在异地，我有 Ta 的答案码</button>
@@ -127,7 +127,7 @@
         </div>
 
         <div class="card">
-          <h2>没有码怎么办</h2>
+          <h2>没有答案码？</h2>
           <ul class="list">
             <li>让 Ta 打开同一个工具答一遍，把结果页上的码发给我</li>
             <li>也可以用「按印象替 Ta 答」先玩一次，结果会标注是凭印象</li>
@@ -150,11 +150,11 @@
         </div>
 
         <div class="card">
-          <div class="section-title">我们属于哪一种</div>
+          <div class="section-title">我们更像哪一种</div>
           <div id="pair-names" class="tags" style="margin-bottom: 10px"></div>
           <p id="pair-type-line" class="body-text"></p>
           <div id="pair-type-note" class="scene-box"></div>
-          <div class="section-title">给我们的建议</div>
+          <div class="section-title">可以试试这样做</div>
           <p id="pair-type-tip" class="gap-line"></p>
         </div>
 
@@ -182,13 +182,13 @@
           <div class="section-title">最容易卡住的地方</div>
           <div id="diff-wrap"></div>
 
-          <div class="section-title">一句话建议</div>
+          <div class="section-title">先记住这一句</div>
           <p id="couple-advice" class="gap-line"></p>
         </div>
 
         <div class="card">
-          <h2>把雷达图带走</h2>
-          <p class="body-text">这张图可以保存到相册，也可以一键发成笔记——记得 @ 一下 Ta。</p>
+          <h2>保存这张图</h2>
+          <p class="body-text">图可以直接存到相册，也可以一键生成笔记文案。发之前记得问问对方愿不愿意公开。</p>
           <button type="button" id="btn-couple-save" class="btn btn-primary">保存对比卡</button>
           <button type="button" id="btn-couple-share" class="btn btn-ghost">发笔记</button>
           <button type="button" id="btn-restart" class="btn btn-ghost">重新开始</button>
@@ -205,11 +205,11 @@
     <div id="toast" class="toast"></div>
     <div id="share-panel" class="share-panel" style="display: none">
       <div class="share-head">
-        <span class="share-title">笔记文案已备好</span>
+        <span class="share-title">笔记文案写好了</span>
         <button type="button" id="btn-share-close" class="share-close">收起</button>
       </div>
       <textarea id="share-text" class="share-text" readonly rows="5"></textarea>
-      <p class="share-tip">复制这段文字 → 保存上面的图片 → 打开小红书新建笔记 → 粘贴文案、加上图片发布。</p>
+      <p class="share-tip">先复制文字，再保存上面的结果图。打开小红书新建笔记，粘贴文案、加上图片就可以发布。</p>
       <button type="button" id="btn-share-reselect" class="btn btn-ghost">重新选中文案</button>
     </div>
     <div id="hearts-layer" class="hearts-layer"></div>

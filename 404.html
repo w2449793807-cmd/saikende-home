@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>页面已迁移｜赛肯德</title>
+  <meta name="robots" content="noindex" />
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    body { min-height: 100svh; margin: 0; display: grid; place-items: center; padding: 24px; color: #1b241f; background: #ece9df; font-family: "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    main { width: min(100%, 620px); padding: 48px; border-radius: 28px; background: #fffdf7; box-shadow: 0 24px 70px rgba(34, 55, 45, .12); }
+    p { color: #667069; line-height: 1.8; }
+    h1 { margin: 0 0 18px; font-family: "Songti SC", "STSong", serif; font-size: clamp(38px, 8vw, 64px); font-weight: 500; line-height: 1.05; }
+    a { display: inline-flex; margin-top: 18px; padding: 13px 18px; border-radius: 999px; color: white; background: #2c665b; text-decoration: none; }
+    a:focus-visible { outline: 3px solid #cc8c2e; outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>这个页面搬家了。</h1>
+    <p>工具、测试和实验室的内容现在都在工具站。旧地址会自动跳转过去。</p>
+    <a id="continue" href="https://tools.saikende.cn/">前往工具站</a>
+  </main>
+  <script>
+    var target = 'https://tools.saikende.cn' + window.location.pathname + window.location.search + window.location.hash;
+    document.getElementById('continue').href = target;
+    window.setTimeout(function () { window.location.replace(target); }, 900);
+  </script>
+</body>
+</html>
